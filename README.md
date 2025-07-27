@@ -43,7 +43,7 @@ It integrates **Stripe payments, video scheduling, and email notifications** to 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/<your-username>/music-consult.git
+git clone https://github.com/Rohit-sh/music-consult.git
 cd music-consult
 
 
