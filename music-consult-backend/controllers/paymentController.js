@@ -21,31 +21,30 @@ export const createCheckoutSession = async (req, res) => {
       return res.status(400).json({ error: "Invalid sessionType" });
     }
 
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
-      mode: "payment",
-      line_items: [
-        {
-          price_data: {
-            currency: "usd",
-            product_data: { name: "Creative Breakthrough Session" },
-            unit_amount: amount * 100,
-          },
-          quantity: 1,
-        },
-      ],
-      success_url: "http://localhost:3000/payment-success",
-      cancel_url: "http://localhost:3000/booking",
-      metadata: {
-        email,
-        name,
-        sessionType,
-        date,
-        time,
+  const session = await stripe.checkout.sessions.create({
+  payment_method_types: ["card"],
+  mode: "payment",
+  line_items: [
+    {
+      price_data: {
+        currency: "usd",
+        product_data: { name: "Creative Breakthrough Session" },
+        unit_amount: amount * 100,
       },
-    });
+      quantity: 1,
+    },
+  ],
+  success_url: `${process.env.FRONTEND_URL}/payment-success`,
+  cancel_url: `${process.env.FRONTEND_URL}/booking`,
+  metadata: {
+    email,
+    name,
+    sessionType,
+    date,
+    time,
+  },
+});
 
-    // FIX: Send session.id instead of url
     res.json({ id: session.id });
   } catch (err) {
     console.error("Error creating checkout session", err);

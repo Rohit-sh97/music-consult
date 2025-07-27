@@ -28,7 +28,18 @@ app.use((req, res, next) => {
   }
 });
 
-app.use(cors());
+
+import cors from "cors";
+
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://music-consult.onrender.com"
+  ],
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+}));
+
 connectDB();
 
 app.get("/", (req, res) => res.send("API running"));
