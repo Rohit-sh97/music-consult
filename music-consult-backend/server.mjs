@@ -28,14 +28,26 @@ app.use((req, res, next) => {
   }
 });
 
-app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://music-consult.onrender.com"
-  ],
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"],
-}));
+const allowedOrigins = [
+  "https://music-consult-be.vercel.app", // your frontend Vercel URL
+  "http://localhost:3000",            // for local development
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin (e.g. mobile apps, curl)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 
 connectDB();
 
