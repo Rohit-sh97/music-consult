@@ -28,7 +28,15 @@ app.use((req, res, next) => {
   }
 });
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://music-consult.onrender.com"
+  ],
+  credentials: true
+}));
+
+
 connectDB();
 
 app.get("/", (req, res) => res.send("API running"));
