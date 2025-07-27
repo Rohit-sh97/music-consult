@@ -34,8 +34,8 @@ export const createCheckoutSession = async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: "http://localhost:3000/payment-success",
-      cancel_url: "http://localhost:3000/booking",
+      success_url: "https://music-consult.onrender.com/payment-success",
+      cancel_url: "https://music-consult.onrender.com/booking",
       metadata: {
         email,
         name,
