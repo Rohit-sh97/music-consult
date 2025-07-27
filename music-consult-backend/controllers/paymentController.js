@@ -21,6 +21,7 @@ export const createCheckoutSession = async (req, res) => {
       return res.status(400).json({ error: "Invalid sessionType" });
     }
 
+<<<<<<< HEAD
   const session = await stripe.checkout.sessions.create({
   payment_method_types: ["card"],
   mode: "payment",
@@ -30,6 +31,29 @@ export const createCheckoutSession = async (req, res) => {
         currency: "usd",
         product_data: { name: "Creative Breakthrough Session" },
         unit_amount: amount * 100,
+=======
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      mode: "payment",
+      line_items: [
+        {
+          price_data: {
+            currency: "usd",
+            product_data: { name: "Creative Breakthrough Session" },
+            unit_amount: amount * 100,
+          },
+          quantity: 1,
+        },
+      ],
+      success_url: "https://music-consult.onrender.com/payment-success",
+      cancel_url: "https://music-consult.onrender.com/booking",
+      metadata: {
+        email,
+        name,
+        sessionType,
+        date,
+        time,
+>>>>>>> 6ddbbcc25e1f5499b98395040577573c3e26c376
       },
       quantity: 1,
     },

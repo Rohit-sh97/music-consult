@@ -51,14 +51,14 @@ export default function BookingPage() {
   setIsProcessing(true);
 
   try {
-    const res = await fetch("http://localhost:5000/api/create-checkout-session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...formData,
-        date: date?.toISOString(),
-      }),
-    });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/api/create-checkout-session`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    ...formData,
+    date: date?.toISOString(),
+  }),
+});
 
     const { id } = await res.json();
 
