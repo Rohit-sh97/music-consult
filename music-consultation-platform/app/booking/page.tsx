@@ -50,26 +50,32 @@ export default function BookingPage() {
   if (!validateForm()) return;
   setIsProcessing(true);
 
-  try {
+try {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/api/create-checkout-session`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    ...formData,
-    date: date?.toISOString(),
-  }),
-});
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      ...formData,
+      date: date?.toISOString(),
+    }),
+  });
 
-    const { id } = await res.json();
-
-    const stripe = await stripePromise;
-    await stripe?.redirectToCheckout({ sessionId: id });
-  } catch (err) {
-    console.error(err);
-    alert("Payment failed. Please try again.");
-  } finally {
-    setIsProcessing(false);
+  if (!res.ok) {
+    const errText = await res.text();
+    console.error("API error:", errText);
+    alert("Failed to create checkout session");
+    return;
   }
+
+  const { id } = await res.json();
+
+  const stripe = await stripePromise;
+  await stripe?.redirectToCheckout({ sessionId: id });
+} catch (err) {
+  console.error("Fetch failed:", err);
+  alert("Payment failed. Please try again.");
+}
+
 };
 
   
