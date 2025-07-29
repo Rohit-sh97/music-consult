@@ -98,7 +98,7 @@ export default function AdvisorPage() {
         {/* Profile Header */}
         <div className="max-w-6xl mx-auto">
           <Card className="bg-gray-800 border-gray-700 mb-8">
-            <CardContent className="p-8">
+   <CardContent className="p-8">
               <div className="grid lg:grid-cols-3 gap-8 items-center">
                 <div className="text-center lg:text-left">
                   <div className="relative w-48 h-48 mx-auto lg:mx-0 mb-6">
