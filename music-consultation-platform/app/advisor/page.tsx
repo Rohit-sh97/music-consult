@@ -34,7 +34,7 @@ export default function AdvisorPage() {
     {
       name: "KalaSur",
       rating: 5,
-      text: "Alex helped me break through the worst creative block of my life. In one session, I went from feeling hopeless to having a clear direction for my next album.",
+      text: "Rohit helped me break through the worst creative block of my life. In one session, I went from feeling hopeless to having a clear direction for my next album.",
       genre: "Sad Pop",
       date: "1 week ago",
       struggle: "Creative block",
@@ -42,7 +42,7 @@ export default function AdvisorPage() {
     {
       name: "Blessi",
       rating: 5,
-      text: "The emotional depth Alex brought to my storytelling completely transformed my rap style. I finally found my authentic voice.",
+      text: "The emotional depth Rohit brought to my storytelling completely transformed my rap style. I finally found my authentic voice.",
       genre: "Storytelling Rap",
       date: "2 weeks ago",
       struggle: "Finding voice",
@@ -50,7 +50,7 @@ export default function AdvisorPage() {
     {
       name: "MC Kaal",
       rating: 5,
-      text: "I was struggling to make my EDM tracks emotionally impactful. Alex showed me how to infuse real feeling into electronic music.",
+      text: "I was struggling to make my EDM tracks emotionally impactful. Rohit showed me how to infuse real feeling into electronic music.",
       genre: "Heartbreak EDM",
       date: "3 weeks ago",
       struggle: "Emotional production",
@@ -58,7 +58,7 @@ export default function AdvisorPage() {
     {
       name: "Riya",
       rating: 5,
-      text: "After months of writer's block, one session with Alex unlocked a flood of creativity. I've written 5 songs since our call.",
+      text: "After months of writer's block, one session with Rohit unlocked a flood of creativity. I've written 5 songs since our call.",
       genre: "Pop",
       date: "1 month ago",
       struggle: "Writer's block",
@@ -122,15 +122,22 @@ export default function AdvisorPage() {
                 </div>
 
                 <div className="lg:col-span-2">
-                  <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    Rohit Sharma
-                  </h1>
-                  <p className="text-xl text-gray-300 mb-6">Creative Breakthrough Specialist & Music Producer</p>
-                  <p className="text-gray-300 mb-6 leading-relaxed">
-                    I've personally faced the creative struggles that many artists go through — doubt, blocks, and the pressure to be perfect.
-With over 45 original songs across different genres, I’ve learned that honesty and emotion are what truly make music connect.
-My goal is to help you clear your mind, find your unique sound, and turn your creative blocks into real, powerful art.
-                  </p>
+                 <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 
+    bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent leading-snug">
+  Rohit Sharma
+</h1>
+
+<p className="text-lg sm:text-xl text-gray-300 mb-4 leading-relaxed">
+  Creative Breakthrough Specialist & Music Producer
+</p>
+
+<p className="text-base sm:text-lg text-gray-300 mb-6 leading-relaxed tracking-wide">
+  I've personally faced the creative struggles that many artists go through — doubt, blocks,
+  and the pressure to be perfect. With over 45 original songs across different genres,
+  I’ve learned that honesty and emotion are what truly make music connect.
+  My goal is to help you clear your mind, find your unique sound,
+  and turn your creative blocks into real, powerful art.
+</p>
                   <Link href="/booking">
                     <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3">
                       <Calendar className="mr-2 h-5 w-5" />
